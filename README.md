@@ -299,10 +299,9 @@ is a javascript framework used to develop SPA / PWA applications.
         Angular CLI - Command Line Interface.
         --------------------------------------
 
-            Create an angualr project       ng new project-name
+            Create an angular project       ng new project-name
 
-
-            npm run build       ng build        for packaging the project.
+            npm run build       ng build    for packaging the project.
                                             later can be deployed onto a server.
 
                         /dist/project-name
@@ -316,7 +315,7 @@ is a javascript framework used to develop SPA / PWA applications.
 
                             main.js             the compile code
                                                 written by the application
-                                                develper.
+                                                developer.
                                                 all components,pipes,service ..etc
 
                             runtime.js          code is to help
@@ -325,8 +324,113 @@ is a javascript framework used to develop SPA / PWA applications.
                             styles.css          global style sheet contaisn all
                                                 css written in the app.
 
-            npm start           ng server        for executing the prject on the 
-                                                 development server
+            npm start       ng serve        for executing the prject on the 
+                                                 development server at port 4200
+
+                            ng serve --port 7777 -o
+                                                for executing the prject on the
+                                                 development server at port 7777
+                                                 and opens the browser automatically
+
+
+                    index.html
+                        |
+                       html
+                        |
+                    ------------------
+                    |               |
+                    head            body
+                    |                  |
+                    ...                app-root     (app.component.ts + appcomponent.html)
+                                          |
+                                          (here goes all of our other componenets)
+
+                
+                "g stabnds for generate"
+                --skipTests will avoid creating testing code files.
+
+            ng g component componentName    --skipTests
+            ng g module moduleName    --skipTests
+            ng g directive directiveName    --skipTests
+            ng g pipe pipeName    --skipTests
+            ng g service serviceName    --skipTests
+            ng g guard guardName    --skipTests
+            ng g class className    --skipTests
+            ng g interface interfaceName    --skipTests
+
+        Data Binding
+        --------------------------------------
+
+            the functions and fields in the controller
+            are consuemd in the template using data binding.
+
+            1. Interpolation
+
+                renders the output of an angular expression on the screen:
+
+                {{angular-expression}}
+
+                an expression any thing that is valid to be written on the right
+                hand side of an assignment operator.
+
+            2. Event Binding
+
+                binding method (event-handlers) with any event on the tempalte:
+
+                (anglarEventDirectives)="eventHandler()"
+
+                    anglarEventDirectives               htmlEventAttribute
+                    ---------------------------         --------------------------
+                    click                               onClick
+                    blur                                onBlur
+                    change                              onChange
+                    focus                               onFocus
+                    dblClick                            onDblClick
+                    ngSubmit                            onSubmit
+
+                    ...etc
+                    
+            3. One-way Data Binding
+
+                    a field of the component controller class
+                    is nooked with an attribute or style attribute or
+                    a class of an element in the tempalte 
+                    such a way that
+                            when ever the field changes
+                            the respective attribute or class or style
+                            also changes.
+
+                    a. Attribute Binding
+
+                            [attributeName]="field"
+
+                    b. Style Binding
+
+                            [style.cssProperty]="field"
+
+                    c. Class Binding
+
+                            [class]="{className:field,className:field}"
+                    
+            4. Two-way Data Binding
+
+                    is about binding a field
+                    with a form-element like
+                    input, select, ...etc
+
+                    ngModel directive is used to bind with a field
+                    ngModel directive belongs to FormsModule
+
+                    [(ngModal)]="field"
+
+
+
+
+
+        
+
+
+
 
 
 

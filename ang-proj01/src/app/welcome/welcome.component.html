@@ -1,0 +1,40 @@
+<button (click)="sayHello()">
+    Hello! Good To See You!
+</button>
+
+<div>
+
+    <div>
+        <input type="range" min="10" max="500" name="i1" [(ngModel)]="logoWidth"/>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" name="c1" [(ngModel)]="flag1" /> Apply Center
+        </label>
+        <label>
+            <input type="checkbox" name="c2" [(ngModel)]="flag2" /> Apply Border
+        </label>
+        <label>
+            <input type="checkbox" name="c3" [(ngModel)]="flag3" /> Apply Round Corners
+        </label>
+    </div>
+
+    <img [src]="logo" [style.width.px]="logoWidth" (dblclick)="changeImage()" 
+    [class]="{centered:flag1,bordered:flag2,roundCornered:flag3}" />
+
+</div>
+
+<div>
+    Arithmetic Result of
+        <input type="number" name="op1" [(ngModel)]="n1" />
+        and 
+        <input type="number" name="op1" [(ngModel)]="n2" />
+        is,
+        <strong>
+            a sum of {{n1+n2}},
+            a difference of {{n1-n2}},
+            a product of {{n1*n2}},
+            a quitiont of {{n1/n2}},
+            and a reminder of {{n1%n2}},
+        </strong>
+</div>
