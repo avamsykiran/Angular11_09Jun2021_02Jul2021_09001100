@@ -1,0 +1,21 @@
+<h3>Structural Directives Demo</h3>
+
+<button (click)="addNum()" class="btn btn-sm btn-primary">Add a new random number</button>
+
+<div>
+    <ul>
+        <li *ngFor="let n of nums">
+            {{n}}
+            
+            <span [ngSwitch]="n%2"> is
+                <span *ngSwitchCase="0"> Even</span>
+                <span *ngSwitchDefault> Odd</span> 
+            </span>
+
+            <span *ngIf="n>0; else notPostive"> and is positive.</span>
+            <ng-template #notPostive>
+                and is negative
+            </ng-template>
+        </li>
+    </ul>
+</div>

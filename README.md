@@ -270,6 +270,7 @@ is a javascript framework used to develop SPA / PWA applications.
                      class MyDirective{
 
                      }
+
             Pipes
                     are classes that are marked with @Pipe annotation.
 
@@ -423,6 +424,69 @@ is a javascript framework used to develop SPA / PWA applications.
 
                     [(ngModal)]="field"
 
+
+        Style Sheets 
+        --------------------------------------
+
+            Global Style Sheets
+                    are loaded on to the browser
+                    immediatly after the index.html is loaded.
+
+                    src/styles.css
+
+                    incldue the thrid-party style sheet
+                    in the styles section of angular.json.
+
+            Component Level Style Sheets
+                    arew loaded on to the browser
+                    only when the respective compoenent is rendered.
+
+            Bootstrap Integration
+                    npm --save install bootstrap@4.0
+
+                    include node_modules/bootstrap/dist/css/bootstrap.min.css
+                    in styles section of angular.json
+
+        Structural Directives
+        --------------------------------------
+
+            are sued to control the visibility of an element.
+
+            *ngIf="boolean-expression"
+
+            *ngFor="let var of array"
+
+            ngSwitch
+                *ngSwitchCase
+
+        Pipes
+        --------------------------------------
+
+             Pipes are used to transform the format of an angular expression just
+             before it is rendered.
+
+             in-built pipes
+             --------------------------------
+             lowercase
+             uppercase
+
+             number
+             percent
+             currency
+             date
+             
+             async
+             json
+
+
+        Services
+        --------------------------------------
+
+        Typescript Interfaces
+        --------------------------------------
+
+        Angular Forms
+        --------------------------------------
 
 
 

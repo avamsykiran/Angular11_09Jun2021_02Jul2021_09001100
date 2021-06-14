@@ -1,0 +1,47 @@
+<h3>In-built Pipes Demo</h3>
+
+<h6>String pipes</h6>
+<div>
+    <p>Original: <strong>{{str}}</strong></p>
+    <p>LowerCase: <strong>{{str|lowercase}}</strong></p>
+    <p>UpperCase: <strong>{{str|uppercase}}</strong></p>
+    <p>TitleCase: <strong>{{str|titlecase}}</strong></p>
+</div>
+
+<h6>Numeric Pipes</h6>
+<div>
+    <p>Original: <strong>{{num}}</strong></p>
+    <p><strong>{{num|number:'4.5-5'}}</strong></p>
+    <p><strong>{{num|percent:'4.5-5'}}</strong></p>
+</div>
+
+<h6>Date Pipes</h6>
+<div>
+    <p>Original: <strong>{{date}}</strong></p>
+    <p><strong>{{date|date:'short'}}</strong></p>
+    <p><strong>{{date|date:'long'}}</strong></p>
+    <p><strong>{{date|date:'dd-MM-yy'}}</strong></p>
+    <p><strong>{{date|date:'dd-MMM-yyyy'}}</strong></p>
+    <p><strong>{{date|date:'dd-MMMM-yyyy'}}</strong></p>
+    <p><strong>{{date|date:'dd-MMMM-yyyy hh:mm:ss a'}}</strong></p>
+    <p><strong>{{date|date:'dd-MMMM-yyyy HH:mm:ss'}}</strong></p>
+</div>
+
+<h6>Currrency Pipes</h6>
+<div>
+    <p>Original: <strong>{{num}}</strong></p>
+    <p><strong>{{num|currency:'INR'}}</strong></p>
+    <p><strong>{{num|currency:'USD'}}</strong></p>
+    <p><strong>{{num|currency:'GBP'}}</strong></p>
+    <p><strong>{{num|currency:'AUD'}}</strong></p>
+    <p><strong>{{num|currency:'AED'}}</strong></p>
+    <p><strong>{{num|currency:'JPY'}}</strong></p>
+    <p><strong>{{num|currency:'EUR'}}</strong></p>
+    <p><strong>{{num|currency:'XYZ'}}</strong></p>
+</div>
+
+<h3>Custome Pipes Demo</h3>
+<div>
+    <p>Original: <strong>{{num}}</strong></p>
+    <p><strong>{{num|intoWords}}</strong></p>
+</div>
