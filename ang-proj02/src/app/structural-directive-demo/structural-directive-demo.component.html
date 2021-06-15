@@ -16,6 +16,11 @@
             <ng-template #notPostive>
                 and is negative
             </ng-template>
+
+            <span *ngIf="ms.isPrime(n); else notPrime"> and is Prime.</span>
+            <ng-template #notPrime>
+                and is not Prime
+            </ng-template>
         </li>
     </ul>
 </div>

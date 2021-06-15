@@ -478,19 +478,161 @@ is a javascript framework used to develop SPA / PWA applications.
              async
              json
 
+        Dependency Injection
+        --------------------------------------
+            the developer will not handle
+            the creation or supply or destruction of 
+            the objects, rather the underlying framework or
+            library does it for us.
+
+            Injector        in-built service
+
+                one injector for each module,component,pipe,directive and service.
+
+                rootInjector                 injector of root module (app.module)
+                    injectorForubModule                  if ther exits a subModule
+                        injectorForComponent                    if thers a component
 
         Services
         --------------------------------------
 
+            holds reusable bussiness logic..
+
+            @Injectable({
+                providedIn:'root'
+            })
+            class MyService{
+
+            }
+
+            providedIn      root        only one object of the service must be created
+                                        inside the rootInjector,
+                                        It is the smae service object supplied to
+                                        whoever requests it in the entire app.
+
+                            any         each lazy loaded module will have
+                                        a seperate object of the service
+                                        in their respective injectors.
+
+            if we want a sperate object of the service in our
+            component, we will have to add the service in the 
+            component decorator metadata/providers section
+
+            @Component({
+                ......,
+                providers:[MyService]
+            })
+            class MyComponent{
+
+            } 
+            
+        Angular Routing
+        --------------------------------
+
+            RouterModule
+                    Routes : Route[]
+
+                    Where each Route has
+                                path            a url segment                           /emp
+                                component       componentToBeDisplayed                  EmployeeDetailsComponent
+                                redirect        another url segment to be redirected    
+                                pathMatch       startsWith|full                         startsWith
+                                ......etc
+
+                    http://localhost:7777/emp               EmployeeDetailsComponent
+                    http://localhost:7777/emps              EmployeeDetailsComponent
+                    http://localhost:7777/emp/xyz           EmployeeDetailsComponent
+
+            <router-outlet></router-outlet>
+
+            routerLink      directive to be used along with <a></a>
+            
         Typescript Interfaces
         --------------------------------------
+
+            interfaces can have
+            function without implementation and
+            data members as well.
+
+            class Custoemr{
+                cid:number;
+                cname:string;
+            }
+
+            let c : Custoemr = new Customer(); //possible
+
+            interface Employee{
+                empId:number;
+                ename:string;
+            }
+
+            let e : Employee = new Employee(); //no, its not possible.
+
+            let e : Employee = { empId:0,ename:''}; //possible
+
+            class MyEmployee implements Employee{
+
+            }
+
+            let e : Employee = new MyEmployee(); //possible.
+
+            interface Shape{
+                sides:number[];
+                angles:number[];
+                area():number;
+            }
+
+           let s : Shape = {sides:[10,10],angles:[90,90,90,90],area:()=>this.sides[0]*this.sides[1]};
+
+           class Rectangle implements Shape{
+               constructor(){
+                   this.sides=[0,0];
+                   this.angles=[90,90,90,90];
+               }
+
+               area():number{
+                   return this.sides[0]*this.sides[1];
+               }
+           }
+
+           let s1: shape = new Rectangle();
+
+      
 
         Angular Forms
         --------------------------------------
 
+                Template Driven form
 
+                        the form is constructed and controlled in the template
+                        the componnet controller has almost no-access to the form.
 
+                        this is less code and less control and difficult to test.
 
+                        it is sutble for simpler forms
+                         (like a form with one or two fiels only,like search forms/login forms)
+
+                        FormsModule             @angular/forms
+                            ngModel
+                            ngForm
+
+                Model Driven Forms / Reactive Forms
+
+                        the form is constructed in template
+                        but is controlled in the component controller
+
+                        this is more code and more control and easy to test.
+
+                        it is suitable for complex forms and nested forms
+                            (like registration forms)
+
+                        ReactiveFormsModule     @angular/forms
+                            formControlName
+                            fromGroup
+                            FormGroup
+                            FormControl
+
+                
         
 
 

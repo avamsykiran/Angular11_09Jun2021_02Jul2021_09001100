@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MathService } from '../math.service';
 
 @Component({
   selector: 'app-structural-directive-demo',
@@ -8,9 +9,11 @@ import { Component } from '@angular/core';
 export class StructuralDirectiveDemoComponent {
 
   nums : number[];
+  //ms:MathService;
 
-  constructor() { 
+  constructor(public ms:MathService) { 
     this.nums=[-45,67,-89,90];
+    //this.ms=ms;
   }
 
   addNum(){
