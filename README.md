@@ -546,7 +546,12 @@ is a javascript framework used to develop SPA / PWA applications.
             <router-outlet></router-outlet>
 
             routerLink      directive to be used along with <a></a>
+            routerLinkActive take a class to be applied on the active.
             
+            Router          is a service that offer two methods:
+                            navigate("urlWhereTogo",{toCarryParamsOrQueryStrings})
+                            navigateByUrl("urlWhereToGo")
+
         Typescript Interfaces
         --------------------------------------
 
@@ -614,7 +619,15 @@ is a javascript framework used to develop SPA / PWA applications.
 
                         FormsModule             @angular/forms
                             ngModel
+                                touched
+                                dirty
+                                invalid
+                                errors
+                                valid
+
                             ngForm
+                                invalid
+                                valid
 
                 Model Driven Forms / Reactive Forms
 

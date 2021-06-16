@@ -1,0 +1,22 @@
+<h3>Users List</h3>
+
+<div *ngIf="!users || users.length==0" class="alert alert-info">
+    <strong>No User Record Available.</strong>
+</div>
+
+<table *ngIf="users && users.length>0" class="table table-border table-hover">
+    <thead>
+        <tr>
+            <th>UserId</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of users">
+            <td>{{u.id}}</td>
+            <td>{{u.firstName}}</td>
+            <td>{{u.lastName}}</td>
+        </tr>
+    </tbody>
+</table>
