@@ -3,5 +3,6 @@ export interface Transaction {
     header:string;
     type:string;
     amount:number;
-    dateOfTransaction:Date;
+    dot:Date;
+    userId:number;
 }

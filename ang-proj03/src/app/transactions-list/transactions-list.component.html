@@ -1,0 +1,25 @@
+
+<h6>Your Transactions</h6>
+<table class="table table-border table-hover">
+    <thead>
+        <tr>
+            <th>D.o.T</th>
+            <th>TxnId</th>
+            <th>Header</th>    
+            <th>Credit</th>
+            <th>Debit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="!txns || txns?.length===0">
+            <td colspan="5">No Transactions To Display</td>
+        </tr>
+        <tr *ngFor="let t of txns">
+            <td>{{t.dot|date:'dd-MMM-yyyy'}}</td>
+            <td>{{t.id}}</td>
+            <td>{{t.header}}</td>
+            <td>{{t.type==='CREDIT'?t.amount:''}}</td>
+            <td>{{t.type==='DEBIT'?t.amount:''}}</td>
+        </tr>
+    </tbody>
+</table>

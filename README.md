@@ -552,6 +552,15 @@ is a javascript framework used to develop SPA / PWA applications.
                             navigate("urlWhereTogo",{toCarryParamsOrQueryStrings})
                             navigateByUrl("urlWhereToGo")
 
+            path parameters are represent as path/:paramName
+
+            ActivatedRoute  is a service used to read various details about
+                            the current route:
+                                query params,
+                                path params,
+                                current url,
+                                ...etc
+
         Typescript Interfaces
         --------------------------------------
 
@@ -602,8 +611,6 @@ is a javascript framework used to develop SPA / PWA applications.
 
            let s1: shape = new Rectangle();
 
-      
-
         Angular Forms
         --------------------------------------
 
@@ -645,8 +652,15 @@ is a javascript framework used to develop SPA / PWA applications.
                             FormGroup
                             FormControl
 
+        Inter Component Communication
+        ------------------------------------------
+
+            Individual Components
+                only using a common service object.
                 
-        
+            Parent - Child Component
+                component attributes @Input
+                expose events @Output
 
 
 

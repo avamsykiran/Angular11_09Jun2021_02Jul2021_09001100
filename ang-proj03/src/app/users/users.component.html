@@ -10,6 +10,7 @@
             <th>UserId</th>
             <th>First Name</th>
             <th>Last Name</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,9 @@
             <td>{{u.id}}</td>
             <td>{{u.firstName}}</td>
             <td>{{u.lastName}}</td>
+            <td>
+                <a [routerLink]="['/txns',u.id]" class="btn btn-sm btn-secondary">Transactions</a>
+            </td>
         </tr>
     </tbody>
 </table>
