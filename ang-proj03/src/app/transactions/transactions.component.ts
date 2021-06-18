@@ -28,4 +28,11 @@ export class TransactionsComponent implements OnInit {
     this.txns= this.txnService.getAllByUserId(userId);
   }
 
+  saveTxn(txn:Transaction){
+    txn.userId=this.currentUser?.id??0;
+    this.txnService.add(txn);
+    this.txns= this.txnService.getAllByUserId(this.currentUser?.id??0);
+    console.log(this.currentUser?.id??0)
+  }
+
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Transaction } from '../models/transaction';
 
 @Component({
   selector: 'app-transaction-form',
@@ -16,6 +17,9 @@ export class TransactionFormComponent implements OnInit {
 
   txnForm : FormGroup;
 
+  @Output()
+  txnFormSubmitted: EventEmitter<Transaction>;
+
   constructor() {
     this.txnIdFc=new FormControl(0,[Validators.required,Validators.min(1)]);
     this.dotFc=new FormControl(new Date(),[Validators.required]);
@@ -30,9 +34,26 @@ export class TransactionFormComponent implements OnInit {
       type:this.typeFc,
       amount:this.amountFc
     });
+
+    this.txnFormSubmitted=new EventEmitter();
    }
 
   ngOnInit(): void {
+  }
+
+  saveTxn(){
+    let txn:Transaction = {
+      id: parseInt(this.txnForm.value.txnId),
+      amount:this.txnForm.value.amount,
+      dot:new Date(this.txnForm.value.dot),
+      header:this.txnForm.value.header,
+      type:this.txnForm.value.type,
+      userId:0
+    };
+    
+    this.txnFormSubmitted.emit(txn);
+
+    this.txnForm.reset();
   }
 
 }

@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="p-2 m-4 border border-primary">
+        <form class="mb-2" (ngSubmit)="startSeries()">
+            <label>Lower Bound:</label>
+            <input type="number" name="lb" [(ngModel)]="lb" class="mr-1" />
+            <label>Upper Bound:</label>
+            <input type="number" name="ub" [(ngModel)]="ub" class="mr-1" />
+            <button class="btn btn-sm btn-secondary" [disabled]="inProgress">Start</button>
+        </form>
+        <div class="border border-secondary p-2">
+            <p *ngIf="err"><strong>{{err}}</strong></p>
+            <p *ngIf="nums && nums?.length>0">
+                <span *ngFor="let n of nums">{{n}} </span>
+            </p>
+        </div>
+    </div>
+</div>

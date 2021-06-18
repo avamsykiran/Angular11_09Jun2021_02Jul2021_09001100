@@ -662,9 +662,56 @@ is a javascript framework used to develop SPA / PWA applications.
                 component attributes @Input
                 expose events @Output
 
+        RxJS
+        --------------------------------------------
+            Reactive JavaScript
+
+            and is used to achive reactive programming in javascript.
+
+            RxJS        Observable
+
+                Observable                      Promise
+                ---------------------------------------------------------------------
+                RxJs                            in-built in JS (ES6)
+
+                subcribed by                    can be subscribed by only one client
+                any number of
+                clients            
+
+                raises three                    raises only two
+                events                          events
+                    next
+                    complete                    resolve
+                    error                       reject
+
+                can emit more                   can emit only one value 
+                than one data item              only after completion of the job
+                asynchronously
+                while doing the job.
+
+                unsubscribe any time.           no support for unsubscription
 
 
+                --------------------------------------------------------------
+
+                let job = observer => {         let job = (resolve,reject) => {
+                    
+                    //to emit a val
+                    observer.next(val);
+                    //to signal completion          //to send val and signal completion
+                    observer.complete();            resolve(val);
+                    //to signal error               //to signalk error 
+                    observer.error(err);            reject(err);
+
+                }                               }
+
+                let o = new Observable(job);    let p = new Promise(job);
 
 
+                o.subscribe(                    p.then(
+                    (val)=> {//on next()},          (val) => {//on resolve()},
+                    (err)=> {//on error()},         (err) => {//on reject()}
+                    ()=>{//on complete()}       );
+                );
 
 
