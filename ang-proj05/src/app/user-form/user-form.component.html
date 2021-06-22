@@ -1,0 +1,36 @@
+<div class="col-sm-6 mx-auto mt-3">
+
+    <div class="alert alert-danger" *ngIf="errMsg">
+        <strong>{{errMsg}}</strong>
+    </div>
+
+    <form (ngSubmit)="saveUser()" #f="ngForm">
+        <div class="form-group" >
+            <label>User Id</label>
+            <input type="number" class="form-control" name="uid" [(ngModel)]="user.id" required #uid="ngModel"/>
+            <div class="alert alert-danger" *ngIf="uid.invalid && (uid.touched || uid.dirty)">
+                <strong *ngIf="uid.errors?.required">This field is mandate</strong>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" name="fnm" [(ngModel)]="user.firstName" 
+            minlength="5" maxlength="25" required #fnm="ngModel"/>
+            <div class="alert alert-danger" *ngIf="fnm.invalid && (fnm.touched || fnm.dirty)">
+                <strong *ngIf="fnm.errors?.required">This field is mandate</strong>
+                <strong *ngIf="fnm.errors?.minlength">Atleast 5 chars expected</strong>
+                <strong *ngIf="fnm.errors?.maxlength">A maximum of 25 chars are only allowed</strong>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" name="lnm" [(ngModel)]="user.lastName" required #lnm="ngModel"/>
+            <div class="alert alert-danger" *ngIf="lnm.invalid && (lnm.touched || lnm.dirty)">
+                <strong *ngIf="lnm.errors?.required">This field is mandate</strong>
+            </div>
+        </div>
+        <button class="btn btn-block btn-primary" [disabled]="f.invalid">
+            Save User
+        </button>
+    </form>
+</div>

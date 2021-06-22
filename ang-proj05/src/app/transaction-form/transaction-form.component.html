@@ -1,0 +1,51 @@
+<h6>Add Transaction</h6>
+
+<div class="mb-2">
+    <div class="col alert alert-danger" *ngIf="txnForm.invalid">
+        <ul *ngIf="txnIdFc.touched || txnIdFc.dirty">
+            <li *ngIf="txnIdFc.errors?.required">Tansaction Id is mandate</li>
+            <li *ngIf="txnIdFc.errors?.min">Tansaction Id can not be a negative number or zero</li>
+        </ul>
+        <ul *ngIf="dotFc.touched || dotFc.dirty">
+            <li *ngIf="dotFc.errors?.required">Date of Tansaction is mandate</li>
+            <li *ngIf="headerFc.errors?.required">Header is mandate</li>
+        </ul>
+        <ul *ngIf="headerFc.touched || dotFc.dirty">
+            <li *ngIf="headerFc.errors?.minlength">Header is expected to be atleast 5 chars in length</li>
+            <li *ngIf="headerFc.errors?.maxlength">Header is expected to be atmax 50 chars in length</li>
+        </ul>
+        <ul *ngIf="typeFc.touched || dotFc.dirty">
+            <li *ngIf="typeFc.errors?.required">Tansaction Type is mandate</li>
+        </ul>
+        <ul *ngIf="amountFc.touched || dotFc.dirty">
+            <li *ngIf="amountFc.errors?.required">Tansaction Amount is mandate</li>
+            <li *ngIf="amountFc.errors?.min">Tansaction Amount must be a non-zero positive number</li>
+        </ul>
+    </div>
+    <form [formGroup]="txnForm" class="form-inline" (ngSubmit)="saveTxn()">
+        <div class="row">
+            <div class="col">
+                <input type="number" formControlName="txnId" class="form-control" placeholder="TxnId" />
+            </div>
+            <div class="col">
+                <input type="date" formControlName="dot" class="form-control" placeholder="date of txn" />
+            </div>
+            <div class="col">
+                <input type="text" formControlName="header" class="form-control" placeholder="Header" />
+            </div>
+            <div class="col">
+                <select formControlName="type" class="form-control">
+                    <option value="">---SELECT---</option>
+                    <option value="CREDIT">INCOME</option>
+                    <option value="DEBIT">EXPENSE</option>
+                </select>
+            </div>
+            <div class="col">
+                <input type="number" formControlName="amount" class="form-control" />
+            </div>
+            <div class="col">
+                <button class="btn btn-sm btn-primary" [disabled]="txnForm.invalid">Add Transaction</button>
+            </div>
+        </div>
+    </form>
+</div>

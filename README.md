@@ -707,11 +707,73 @@ is a javascript framework used to develop SPA / PWA applications.
 
                 let o = new Observable(job);    let p = new Promise(job);
 
-
                 o.subscribe(                    p.then(
                     (val)=> {//on next()},          (val) => {//on resolve()},
                     (err)=> {//on error()},         (err) => {//on reject()}
                     ()=>{//on complete()}       );
                 );
+
+            Observable Operators
+            --------------------------------------------
+                an operator is a function
+                that can generate a new observable from
+                an existing observable.
+
+                map             accepts a transformer function
+                                executes this transformer function on each ele of older Observable
+                                and returns anew observable that emits the resultant eles
+                                of the transformer function.
+
+                filter          accepts a predicate funciton
+                                it returns a new observable that emeits only
+                                thos eles of the older observable that satisfy the predicte.
+                
+                catch           is used to handle errors on a chain of observables,
+
+                merge           is used to merge the resultants of two observable into
+                                a new observable.
+                
+                ...etc
+
+                'pipe()' is a fucntion on Observable
+                using which the operators can be applied on an 
+                observable
+
+        REST API and json-server
+        -----------------------------------------------------------------
+
+            a rest api is a collection of middleware functions that
+            can be executed by sending an http request.
+
+            Each middleare function in a Rest api is called a http req handler.
+            Each of that has a url and is called the rest end-point.
+
+            For a givne rest end point
+
+                        GET     retrive
+                        PUT     update
+                        POST    insert
+                        delete  delete
+
+            json-server     is a javascript tool that generates fake rest api on a given
+                            json file.
+
+                            npm --save install json-server
+
+                            json-server --port 9999 --watch datafile.json
+
+        
+        Using HttpClient to consume a REST api
+        ------------------------------------------------------------------
+
+        1. store all your rest end points in the environment.ts file
+        2. Use HttpClient to communicate with those end points
+
+            HttpClientModule
+                HttpClient          it is a in-built service
+                    get(url) : Observable
+                    post(url,reqBody) : Observable
+                    put(url,reqBody) : Observable
+                    delete(url) : Observable
 
 

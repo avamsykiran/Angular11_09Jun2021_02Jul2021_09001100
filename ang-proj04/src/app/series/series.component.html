@@ -5,11 +5,17 @@
             <input type="number" name="lb" [(ngModel)]="lb" class="mr-1" />
             <label>Upper Bound:</label>
             <input type="number" name="ub" [(ngModel)]="ub" class="mr-1" />
+            <label class="mr-1">
+                <input type="checkbox" name="c1" [(ngModel)]="doEven" />Evens 
+            </label>
+            <label class="mr-1">
+                <input type="checkbox" name="c2" [(ngModel)]="doSquare" />Squares 
+            </label>
             <button class="btn btn-sm btn-secondary" [disabled]="inProgress">Start</button>
         </form>
         <div class="border border-secondary p-2">
             <p *ngIf="err"><strong>{{err}}</strong></p>
-            <p *ngIf="nums && nums?.length>0">
+            <p *ngIf="nums">
                 <span *ngFor="let n of nums">{{n}} </span>
             </p>
         </div>
