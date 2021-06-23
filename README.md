@@ -776,4 +776,57 @@ is a javascript framework used to develop SPA / PWA applications.
                     put(url,reqBody) : Observable
                     delete(url) : Observable
 
+        Http Interceptors
+        --------------------------------------------------------------------
 
+         an interceptor means somthing that play in between 
+         a communication.
+
+         AngApp (client)    <-----[Interceptor]--------> RestApi (BackEndApp)
+
+         an interceptor can execute a cxommon job 
+            1. before each request leaves the ang-app
+            2. or after each response enters the ang-app.
+
+        ng g interceptor InterceptorName
+
+        Angular LifeCycle & Hooks
+       ----------------------------------------------------------------------------------
+
+        constructor
+        ngOnChanges                      when the data-bound property variations happen (form control gets renewed )
+        ngOnInit                         When Angular has completed the creation and introduction of components
+        ngDoCheck                        whenever there is a vitality to review the input property of a component or directive
+                ngAfterContentInit      when every content of the components gets introduced and checked for the first time
+                ngAfterContentChecked   
+                ngAfterViewInit
+                ngAfterViewChecked
+        ngOnDestroy
+
+        Modularization
+        --------------------------------------------------------------------------------
+        Domain: A domain NgModule is organized around a feature, business domain, or user experience.
+        Routed: The top component of the NgModule acts as the destination of a router navigation route.
+        Routing: A routing NgModule provides the routing configuration for another NgModule.
+        Service: A service NgModule provides utility services such as data access and messaging.
+        Widget: A widget NgModule makes a component, directive, or pipe available to other NgModules.
+        Shared: A shared NgModule makes a set of components, directives, and pipes available to other NgModules.
+
+                NgModule	Declarations	Providers	    Exports	        Imported by
+                ------------------------------------------------------------------------------
+                Domain	        Yes	        Rare	        Top component	Another domain, AppModule
+                Routed	        Yes	        Rare	        No	            None
+                Routing	        No	        Yes (Guards)	RouterModule	Another domain (for routing)
+                Service	        No	        Yes	            No	            AppModule
+                Widget	        Yes	        Rare	        Yes	            Another domain
+                Shared	        Yes	        No	            Yes	            Another domain
+
+
+        ng g module Shared
+        ng g module Widgets
+        ng g module Services --module app.module
+
+
+        lazy loading a domain module
+        -------------------------------------------------------------
+        ng g module EntityDoamin --route entity --module app.module

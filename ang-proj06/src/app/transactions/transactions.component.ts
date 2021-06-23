@@ -26,7 +26,7 @@ export class TransactionsComponent implements OnInit {
     let userId = parseInt(this.activatedRoute.snapshot.params.userId);
     this.userService.getById(userId).subscribe(
       data => this.currentUser=data,
-      err => {console.log(err); this.errMsg="Failed to retrive user details"}
+      err => this.errMsg="Failed to retrive user details"
     )
    this.loadTxns(userId);
   }
@@ -34,7 +34,7 @@ export class TransactionsComponent implements OnInit {
   loadTxns(userId:number){
     this.txnService.getAllByUserId(userId).subscribe(
       data => this.txns=data,
-      err => {console.log(err); this.errMsg="Failed to retrive user transactions"}
+      err =>this.errMsg="Failed to retrive user transactions"
     )
   }
 
@@ -42,7 +42,7 @@ export class TransactionsComponent implements OnInit {
     txn.userId=this.currentUser?.id??0;
     this.txnService.add(txn).subscribe(
       data => this.loadTxns(this.currentUser?.id??0),
-      err => {console.log(err); this.errMsg="Failed to save user transactions"}
+      err =>  this.errMsg="Failed to save user transactions"
     );
   }
 

@@ -1,0 +1,34 @@
+<h3>Users List</h3>
+
+<div *ngIf="!users && !errMsg" class="alert alert-info">
+    <strong>Please wait while feteching data...</strong>
+</div>
+
+<div *ngIf="errMsg" class="alert alert-danger">
+    <strong>{{errMsg}}</strong>
+</div>
+
+<div *ngIf="users && users.length==0" class="alert alert-info">
+    <strong>No User Record Available.</strong>
+</div>
+
+<table *ngIf="users && users.length>0" class="table table-border table-hover">
+    <thead>
+        <tr>
+            <th>UserId</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of users">
+            <td>{{u.id}}</td>
+            <td>{{u.firstName}}</td>
+            <td>{{u.lastName}}</td>
+            <td>
+                <a [routerLink]="['/txns',u.id]" class="btn btn-sm btn-secondary">Transactions</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
