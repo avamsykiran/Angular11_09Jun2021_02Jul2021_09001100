@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id":1,
+      "firstName":"admin",
+      "lastName":"",
+      "emailId":"admin@expenses.com",
+      "password":"admin",
+      "role":"ADMIN"
+    }
+  ],
+  "transactions": [
+  ]
+}
