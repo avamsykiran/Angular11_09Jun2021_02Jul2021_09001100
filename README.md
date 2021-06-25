@@ -830,3 +830,17 @@ is a javascript framework used to develop SPA / PWA applications.
         lazy loading a domain module
         -------------------------------------------------------------
         ng g module EntityDoamin --route entity --module app.module
+
+       Router Guards
+       ----------------------------------------------------------------------------------
+
+        is used to protect a route from being accessed
+        only when it is allowed to access.
+
+        Angular provides four types of RouterGuards (interfaces)
+
+            CanActivate            control if a route can be entered or not
+            CanDeactivate          control if a route can be left or not
+            CanLoad                controls if a lazy loaded route should be laoded or not
+            CanChildActivate       control if child-routes can be entered or not
+        

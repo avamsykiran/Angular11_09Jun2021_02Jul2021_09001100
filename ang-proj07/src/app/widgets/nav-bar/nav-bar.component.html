@@ -7,5 +7,10 @@
                 {{l.linkText}}
             </a>
         </li>
+        <li class="nav-item" *ngIf="isLogoutRequired">
+            <button class="btn btn-sm btn-info" (click)="logoutBtnClicked()">
+                LOGOUT
+            </button>
+        </li>
     </ul>
 </nav>

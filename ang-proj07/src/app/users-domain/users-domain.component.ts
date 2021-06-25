@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsersService } from '../services/users.service';
+import { NavLink } from '../shared/nav-link';
 
 @Component({
   selector: 'app-users-domain',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersDomainComponent implements OnInit {
 
-  constructor() { }
+  links:NavLink[];
+  
+  constructor(private usersService:UsersService,private router:Router) {
+    this.links=[];
+  }
 
   ngOnInit(): void {
   }
 
+  logout(){
+    this.usersService.logout();
+    this.router.navigateByUrl("/");
+  }
 }

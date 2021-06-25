@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UsersService } from '../services/users.service';
+import { NavLink } from '../shared/nav-link';
+import { User } from '../shared/user';
 
 @Component({
   selector: 'app-txns-domain',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TxnsDomainComponent implements OnInit {
 
-  constructor() { }
+  links:NavLink[];
+  user:User|null;
+  
+  constructor(private usersService:UsersService,private router:Router) {
+    this.links=[];
+    this.user=this.usersService.getCurretnUser();
+  }
 
   ngOnInit(): void {
   }
 
+  logout(){
+    this.usersService.logout();
+    this.router.navigateByUrl("/");
+  }
 }

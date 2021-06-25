@@ -2,6 +2,11 @@
     <div class="col-sm-4 mx-auto mt-5">
         <div class="bg-primary p-2">
             <h4>Login</h4>
+
+            <app-msg-box *ngIf="errMsg" isError="true">
+                <strong>Err: {{errMsg}}</strong>
+            </app-msg-box>
+
             <form class="form" (ngSubmit)="login()">
                 <div class="form-group">
                     <label>Email Id</label>

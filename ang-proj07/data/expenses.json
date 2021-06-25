@@ -7,6 +7,14 @@
       "emailId":"admin@expenses.com",
       "password":"admin",
       "role":"ADMIN"
+    },
+    {
+      "id":2,
+      "firstName":"Vamsy Kiran",
+      "lastName":"Aripaka",
+      "emailId":"vamsy.kiran@iiht.com",
+      "password":"vamsy",
+      "role":"USER"
     }
   ],
   "transactions": [

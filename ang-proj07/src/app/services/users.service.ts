@@ -32,24 +32,22 @@ export class UsersService {
     return this.httpClient.delete<void>(`${this.usersEndPoint}/${id}`);
   }
 
-  login(email:string,pwd:string):Observable<boolean>{
+  login(email:string,pwd:string):Observable<User>{
     return this.httpClient.get<User[]>(`${this.usersEndPoint}?emailId=${email}`).pipe(
       map( users => {
-        let isOk=false;
-
+        let u : User|null = null;
         if(users && users.length>0){
-          let u = users[0];
+          u = users[0];
           if(u.password===pwd){
             u.password=undefined;
             sessionStorage.setItem("user",JSON.stringify(u));
-            isOk=true;
           }else{
             throw "Invalid Credits"
           }
         }else{
           throw "User not found"
         }
-        return isOk;
+        return u;
       })
     )
   }
