@@ -1,5 +1,9 @@
-<app-nav-bar [links]="links" isLogoutRequired="true"  (logoutClicked)="logout()"></app-nav-bar>
+<app-nav-bar [links]="links" [isLogoutRequired]="true"  (logoutClicked)="logout()"></app-nav-bar>
 
 <main class="container-fluid p-4">
     <h4>{{user?.firstName}} {{user?.lastName}}</h4>
+
+    <div class="mt-2 p-2">
+        <router-outlet></router-outlet>
+    </div>
 </main>

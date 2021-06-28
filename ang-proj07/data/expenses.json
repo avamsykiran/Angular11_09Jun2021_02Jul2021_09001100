@@ -1,22 +1,29 @@
 {
   "users": [
     {
-      "id":1,
-      "firstName":"admin",
-      "lastName":"",
-      "emailId":"admin@expenses.com",
-      "password":"admin",
-      "role":"ADMIN"
+      "id": 1,
+      "firstName": "admin",
+      "lastName": "",
+      "emailId": "admin@expenses.com",
+      "password": "admin",
+      "role": "ADMIN"
     },
     {
-      "id":2,
-      "firstName":"Vamsy Kiran",
-      "lastName":"Aripaka",
-      "emailId":"vamsy.kiran@iiht.com",
-      "password":"vamsy",
-      "role":"USER"
+      "id": 2,
+      "firstName": "Vamsy Kiran",
+      "lastName": "Aripaka",
+      "emailId": "vamsy.kiran@iiht.com",
+      "password": "vamsy",
+      "role": "USER"
+    },
+    {
+      "id": 3,
+      "firstName": "Sagar Guru Charan",
+      "lastName": "Aripak",
+      "emailId": "sagar@gmail.com",
+      "password": "sagar",
+      "role": "USER"
     }
   ],
-  "transactions": [
-  ]
+  "transactions": []
 }

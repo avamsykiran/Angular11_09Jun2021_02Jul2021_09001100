@@ -1,0 +1,22 @@
+
+    <app-msg-box *ngIf="errMsg || users.length==0" [isError]="errMsg===null">
+        <strong *ngIf="errMsg">Err: {{errMsg}}</strong>
+        <strong *ngIf="users.length==0">No User Accounts To Display</strong>"
+    </app-msg-box>
+
+    <table *ngIf="users && users.length>0" class="table table-border table-stripped">
+        <thead>
+            <th>User#</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Role</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of users">
+                <td>{{u.id}}</td>
+                <td>{{u.firstName}} {{u.lastName}}</td>
+                <td>{{u.emailId}}</td>
+                <td>{{u.role}}</td>
+            </tr>
+        </tbody>
+    </table>

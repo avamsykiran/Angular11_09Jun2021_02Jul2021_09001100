@@ -13,7 +13,10 @@ export class UsersDomainComponent implements OnInit {
   links:NavLink[];
   
   constructor(private usersService:UsersService,private router:Router) {
-    this.links=[];
+    this.links=[
+      {linkText:'Users Lsit',linkUrl:'/users/list'},
+      {linkText:'Add User',linkUrl:'/users/new'}
+    ];
   }
 
   ngOnInit(): void {

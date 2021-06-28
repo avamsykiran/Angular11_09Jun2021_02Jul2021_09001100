@@ -3,7 +3,7 @@
         <div class="bg-primary p-2">
             <h4>Login</h4>
 
-            <app-msg-box *ngIf="errMsg" isError="true">
+            <app-msg-box *ngIf="errMsg" [isError]="true">
                 <strong>Err: {{errMsg}}</strong>
             </app-msg-box>
 

@@ -1,0 +1,68 @@
+<app-msg-box *ngIf="errMsg" [isError]="true">
+    <strong>Err: {{errMsg}}</strong>
+</app-msg-box>
+
+<div class="col-sm-8 mx-auto">
+    <form class="form" (ngSubmit)="handleFormSubmit()" [formGroup]="userFormGroup">
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>User Id</label>
+                    <input type="number" formControlName="id" class="form-control" />
+                    <div class="alert alert-danger" *ngIf="idFC.invalid && (idFC.touched || idFC.dirty)">
+                        <span *ngIf="idFC.errors?.required">This field is mandate</span>
+                        <span *ngIf="idFC.errors?.min">A non zero postive number expected</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" formControlName="firstName" class="form-control" />
+                    <div class="alert alert-danger" *ngIf="fnmFC.invalid && (fnmFC.touched || fnmFC.dirty)">
+                        <span *ngIf="fnmFC.errors?.required">This field is mandate</span>
+                        <span *ngIf="fnmFC.errors?.minlength">Atleast 5 chars expected</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control" />
+                    <div class="alert alert-danger" *ngIf="lnmFC.invalid && (lnmFC.touched || lnmFC.dirty)">
+                        <span *ngIf="lnmFC.errors?.required">This field is mandate</span>
+                        <span *ngIf="lnmFC.errors?.minlength">Atleast 5 chars expected</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label>Email Id</label>
+                    <input type="email" formControlName="emailId" class="form-control" />
+                    <div class="alert alert-danger" *ngIf="eidFC.invalid && (eidFC.touched || eidFC.dirty)">
+                        <span *ngIf="eidFC.errors?.required">This field is mandate</span>
+                        <span *ngIf="eidFC.errors?.email">A valid email Id expected</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" formControlName="password" class="form-control" />
+                    <div class="alert alert-danger" *ngIf="pwdFC.invalid && (pwdFC.touched || pwdFC.dirty)">
+                        <span *ngIf="pwdFC.errors?.required">This field is mandate</span>
+                        <span *ngIf="pwdFC.errors?.minlength">Atleast 3 chars expected</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select formControlName="role" class="form-control">
+                        <option value="">---SELECT----</option>
+                        <option value="ADMIN">ADMIN</option>
+                        <option value="USER">USER</option>
+                    </select>
+                    <div class="alert alert-danger" *ngIf="roleFC.invalid && (roleFC.touched || roleFC.dirty)">
+                        <span *ngIf="roleFC.errors?.required">This field is mandate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-block" [disabled]="userFormGroup.invalid">
+            Add User
+        </button>
+    </form>
+</div>

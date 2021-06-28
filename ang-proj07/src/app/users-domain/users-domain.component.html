@@ -1,1 +1,4 @@
-<app-nav-bar [links]="links" isLogoutRequired="true"  (logoutClicked)="logout()"></app-nav-bar>
+<app-nav-bar [links]="links" [isLogoutRequired]="true"  (logoutClicked)="logout()"></app-nav-bar>
+<section class="container-fluid p-4">
+    <router-outlet></router-outlet>
+</section>
