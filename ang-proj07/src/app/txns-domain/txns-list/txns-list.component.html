@@ -1,1 +1,36 @@
-<p>txns-list works!</p>
+<app-msg-box *ngIf="errMsg || txns.length==0" [isError]="errMsg===null">
+    <strong *ngIf="errMsg">Err: {{errMsg}}</strong>
+    <strong *ngIf="txns.length==0">No Transactions To Display</strong>
+</app-msg-box>
+
+<table class="table table-border table-hover" *ngIf="txns.length>0">
+    <thead>
+        <tr class="text-center">
+            <th>D.o.T</th>
+            <th>TxnId</th>
+            <th>Header</th>    
+            <th>Credit</th>
+            <th>Debit</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let t of txns">
+            <td class="text-center">{{t.dot|date:'dd-MMM-yyyy'}}</td>
+            <td class="text-right">{{t.id}}</td>
+            <td class="text-left">{{t.header}}</td>
+            <td class="text-right">{{t.type==='CREDIT'?(t.amount|currency:'INR'):''}}</td>
+            <td class="text-right">{{t.type==='DEBIT'?(t.amount|currency:'INR'):''}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr class="text-right">
+            <th colspan="3">Total</th>
+            <th>{{totalCredit|currency:'INR'}}</th>
+            <th>{{totalDebit|currency:'INR'}}</th>
+        </tr>
+        <tr class="text-right">
+            <th colspan="4">Total Balance</th>
+            <th>{{balance|currency:'INR'}}</th>
+        </tr>
+    </tfoot>
+</table>

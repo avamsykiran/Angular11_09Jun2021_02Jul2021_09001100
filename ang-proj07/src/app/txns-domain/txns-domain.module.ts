@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { TxnsDomainRoutingModule } from './txns-domain-routing.module';
 import { TxnsDomainComponent } from './txns-domain.component';
@@ -13,7 +14,8 @@ import { TxnsFormComponent } from './txns-form/txns-form.component';
   imports: [
     CommonModule,
     TxnsDomainRoutingModule,
-    WidgetsModule
+    WidgetsModule,
+    ReactiveFormsModule
   ]
 })
 export class TxnsDomainModule { }

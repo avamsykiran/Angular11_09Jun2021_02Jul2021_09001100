@@ -25,5 +25,38 @@
       "role": "USER"
     }
   ],
-  "transactions": []
+  "transactions": [
+    {
+      "id": 1,
+      "dot": "2021-06-01",
+      "header": "Salary",
+      "type": "CREDIT",
+      "amount": 45600,
+      "userId": 2
+    },
+    {
+      "id": 2,
+      "dot": "2021-06-01",
+      "header": "School Fee",
+      "type": "DEBIT",
+      "amount": 6780,
+      "userId": 2
+    },
+    {
+      "id": 3,
+      "dot": "2021-06-01",
+      "header": "Salary",
+      "type": "CREDIT",
+      "amount": 35000,
+      "userId": 3
+    },
+    {
+      "id": 4,
+      "dot": "2021-07-01",
+      "header": "Salary",
+      "type": "CREDIT",
+      "amount": 56000,
+      "userId": 2
+    }
+  ]
 }

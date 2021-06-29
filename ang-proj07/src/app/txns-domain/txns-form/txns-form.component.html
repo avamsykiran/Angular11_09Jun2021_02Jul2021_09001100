@@ -1,1 +1,61 @@
-<p>txns-form works!</p>
+<app-msg-box *ngIf="errMsg" [isError]="true">
+    <strong>Err: {{errMsg}}</strong>
+</app-msg-box>
+
+<div class="col-sm-8 mx-auto">
+    <form class="form" (ngSubmit)="saveTxn()" [formGroup]="txnForm">
+        <div class="form-group">
+            <label>Header</label>
+            <input type="text" formControlName="header" class="form-control">
+            <div class="alert alert-danger" *ngIf="headerFc.invalid && (headerFc.touched || dotFc.dirty)">
+                <span *ngIf="headerFc.errors?.required">Header is mandate</span>
+                <span *ngIf="headerFc.errors?.minlength">Header is expected to be atleast 5 chars in length</span>
+                <span *ngIf="headerFc.errors?.maxlength">Header is expected to be atmax 50 chars in length</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label>Transaction Id</label>
+                    <input type="number" formControlName="id" class="form-control" />
+                    <div class="alert alert-danger" *ngIf="txnIdFc.invalid && (txnIdFc.touched || txnIdFc.dirty)">
+                        <span *ngIf="txnIdFc.errors?.required">Tansaction Id is mandate</span>
+                        <span *ngIf="txnIdFc.errors?.min">Tansaction Id can not be a negative number or zero</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Date Of Transaction</label>
+                    <input type="date" formControlName="dot" class="form-control" />
+                    <div class="alert alert-danger" *ngIf="dotFc.invalid && (dotFc.touched || dotFc.dirty)">
+                        <span *ngIf="dotFc.errors?.required">Date of Tansaction is mandate</span>
+                        <span *ngIf="headerFc.errors?.required">Header is mandate</span>
+                    </div>
+                </div>               
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label>Transaction Type</label>
+                    <select formControlName="type" class="form-control">
+                        <option value="">---SELECT---</option>
+                        <option value="CREDIT">INCOME</option>
+                        <option value="DEBIT">EXPENSE</option>
+                    </select>
+                    <div class="alert alert-danger" *ngIf="typeFc.invalid && (typeFc.touched || typeFc.dirty)">
+                        <span *ngIf="typeFc.errors?.required">Tansaction Type is mandate</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="number" formControlName="amount" class="form-control" />
+                    <div class="alert alert-danger" *ngIf="amountFc.invalid && (amountFc.touched || amountFc.dirty)">
+                        <span *ngIf="amountFc.errors?.required">Tansaction Amount is mandate</span>
+                        <span *ngIf="amountFc.errors?.min">Tansaction Amount must be a non-zero positive number</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-block" [disabled]="txnForm.invalid">
+            Add Transaction
+        </button>
+    </form>
+</div>
