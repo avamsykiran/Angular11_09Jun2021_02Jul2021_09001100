@@ -1,3 +1,13 @@
+
+<div class="col-3 mx-auto mb-2">
+    <form class="form-inline">                   
+        <select class="form-control" [(ngModel)]="month" name="s1" (change)="loadData()">
+            <option *ngFor="let m of months" [value]="m[0]">{{m[1]}}</option>
+        </select>
+        <input type="number" placeholder="year" class="form-control" name="tb" [(ngModel)]="year" (change)="loadData()"/>
+    </form>
+</div>
+
 <app-msg-box *ngIf="errMsg || txns.length==0" [isError]="errMsg===null">
     <strong *ngIf="errMsg">Err: {{errMsg}}</strong>
     <strong *ngIf="txns.length==0">No Transactions To Display</strong>

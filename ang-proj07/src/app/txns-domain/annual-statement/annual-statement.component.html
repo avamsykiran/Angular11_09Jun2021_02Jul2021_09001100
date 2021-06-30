@@ -1,0 +1,38 @@
+
+<div class="col-3 mx-auto mb-2">
+    <form class="form-inline" (ngSubmit)="loadData()">                   
+        <input type="number" placeholder="year" class="form-control" name="tb" [(ngModel)]="year"/>
+        <button class="btn btn-sm btn-primary">FETECH</button>
+    </form>
+</div>
+
+<app-msg-box *ngIf="errMsg" [isError]="errMsg===null">
+    <strong *ngIf="errMsg">Err: {{errMsg}}</strong>
+</app-msg-box>
+
+<table class="table table-border table-hover" *ngIf="summary">
+    <thead>
+        <tr class="text-center">
+            <th>Month</th>
+            <th>Monthly Credit</th>
+            <th>Monthly Debit</th>    
+            <th>Monthly Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of summary.monthlies">
+            <td class="text-center">{{s.month}}</td>
+            <td class="text-right">{{s.totalCredit|currency:'INR'}}</td>
+            <td class="text-right">{{s.totalDebit|currency:'INR'}}</td>
+            <td class="text-right">{{s.balance|currency:'INR'}}</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr class="text-right">
+            <th>Total</th>
+            <th>{{summary.totalCredit|currency:'INR'}}</th>
+            <th>{{summary.totalDebit|currency:'INR'}}</th>
+            <th>{{summary.balance|currency:'INR'}}</th>
+        </tr>
+    </tfoot>
+</table>

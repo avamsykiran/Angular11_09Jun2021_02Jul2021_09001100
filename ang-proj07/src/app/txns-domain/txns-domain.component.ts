@@ -16,7 +16,8 @@ export class TxnsDomainComponent implements OnInit {
   
   constructor(private usersService:UsersService,private router:Router) {
     this.links=[
-      {linkUrl:'/txns/list',linkText:"Transactions List"},
+      {linkUrl:'/txns/list',linkText:"Monthly Statement"},
+      {linkUrl:'/txns/listAnnual',linkText:"Annual Statement"},
       {linkUrl:'/txns/new',linkText:"New Transaction"},
     ];
     this.user=this.usersService.getCurretnUser();

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AnnualStatementComponent } from './annual-statement/annual-statement.component';
 
 import { TxnsDomainComponent } from './txns-domain.component';
 import { TxnsFormComponent } from './txns-form/txns-form.component';
@@ -9,6 +10,7 @@ const routes: Routes = [
   {
     path: '', component: TxnsDomainComponent, children: [
       { path: 'list', component: TxnsListComponent },
+      { path: 'listAnnual', component: AnnualStatementComponent },
       { path: 'new', component: TxnsFormComponent },
       { path: '', pathMatch: 'full', redirectTo: 'list' }
     ]
