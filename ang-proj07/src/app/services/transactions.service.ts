@@ -23,6 +23,18 @@ export class TransactionsService {
     return this.httpClient.post<Transaction>(this.txnsEndPoint, txn)
   }
 
+  delete(id:number):Observable<void>{
+    return this.httpClient.delete<void>(`${this.txnsEndPoint}/${id}`);
+  }
+
+  getById(id:number):Observable<Transaction>{
+    return this.httpClient.get<Transaction>(`${this.txnsEndPoint}/${id}`);
+  }
+  
+  save(txn: Transaction): Observable<Transaction> {
+    return this.httpClient.put<Transaction>(`${this.txnsEndPoint}/${txn.id}`, txn)
+  }
+
   computeSummary(txns: Transaction[], lb: Date, ub: Date): TxnSummary {
 
     let summary: TxnSummary = { txns: [], totalCredit: 0, totalDebit: 0, balance: 0 };

@@ -16,6 +16,7 @@
 <table class="table table-border table-hover" *ngIf="txns.length>0">
     <thead>
         <tr class="text-center">
+            <th></th>
             <th>D.o.T</th>
             <th>TxnId</th>
             <th>Header</th>    
@@ -25,6 +26,10 @@
     </thead>
     <tbody>
         <tr *ngFor="let t of txns">
+            <td>
+                <button class="btn btn-sm btn-danger mr-2" (click)="delete(t.id)">DELETE</button>
+                <a [routerLink]="['/txns/edit',t.id]" class="btn btn-sm btn-info">EDIT</a>
+            </td>
             <td class="text-center">{{t.dot|date:'dd-MMM-yyyy'}}</td>
             <td class="text-right">{{t.id}}</td>
             <td class="text-left">{{t.header}}</td>
@@ -34,12 +39,12 @@
     </tbody>
     <tfoot>
         <tr class="text-right">
-            <th colspan="3">Total</th>
+            <th colspan="4">Total</th>
             <th>{{totalCredit|currency:'INR'}}</th>
             <th>{{totalDebit|currency:'INR'}}</th>
         </tr>
         <tr class="text-right">
-            <th colspan="4">Total Balance</th>
+            <th colspan="5">Total Balance</th>
             <th>{{balance|currency:'INR'}}</th>
         </tr>
     </tfoot>

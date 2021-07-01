@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionsService } from 'src/app/services/transactions.service';
 import { UsersService } from 'src/app/services/users.service';
+import { AnnualSummary } from 'src/app/shared/annual-summary';
 import { MonthlySummary } from 'src/app/shared/monthly-summary';
+import { User } from 'src/app/shared/user';
 
 @Component({
   selector: 'app-annual-statement',
@@ -11,7 +13,7 @@ import { MonthlySummary } from 'src/app/shared/monthly-summary';
 export class AnnualStatementComponent implements OnInit {
 
   user: User | null;
-  summary?:MonthlySummary[];
+  summary?:AnnualSummary;
   year: number;
   errMsg?:string;
 

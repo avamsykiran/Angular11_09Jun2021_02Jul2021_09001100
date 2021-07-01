@@ -17,7 +17,7 @@
             <div class="col">
                 <div class="form-group">
                     <label>Transaction Id</label>
-                    <input type="number" formControlName="id" class="form-control" />
+                    <input type="number" formControlName="id" class="form-control" [readonly]="isEditing"/>
                     <div class="alert alert-danger" *ngIf="txnIdFc.invalid && (txnIdFc.touched || txnIdFc.dirty)">
                         <span *ngIf="txnIdFc.errors?.required">Tansaction Id is mandate</span>
                         <span *ngIf="txnIdFc.errors?.min">Tansaction Id can not be a negative number or zero</span>
@@ -55,7 +55,7 @@
             </div>
         </div>
         <button class="btn btn-primary btn-block" [disabled]="txnForm.invalid">
-            Add Transaction
+            {{isEditing? "Save ": "Add "}} Transaction
         </button>
     </form>
 </div>

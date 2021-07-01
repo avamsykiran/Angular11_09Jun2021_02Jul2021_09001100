@@ -13,47 +13,54 @@ export class TxnsListComponent implements OnInit {
 
   user: User | null;
 
-  txns:Transaction[];
-  totalCredit:number;
-  totalDebit:number;
-  balance:number;
+  txns: Transaction[];
+  totalCredit: number;
+  totalDebit: number;
+  balance: number;
 
-  errMsg?:string;
+  errMsg?: string;
 
-  months:string[][];
-  year:number;
-  month:string;
+  months: string[][];
+  year: number;
+  month: string;
 
-  constructor(private usersService: UsersService,private txnService:TransactionsService) {
+  constructor(private usersService: UsersService, private txnService: TransactionsService) {
     this.user = this.usersService.getCurretnUser();
-    this.txns=[];
-    this.totalCredit=0;
-    this.totalDebit=0;
-    this.balance=0;
+    this.txns = [];
+    this.totalCredit = 0;
+    this.totalDebit = 0;
+    this.balance = 0;
 
-    this.months=[
-      ["01","JAN"],["02","FEB"],["03","MAR"],["04","APR"],["05","MAY"],["06","JUN"],
-      ["07","JUL"],["08","AUG"],["09","SEP"],["10","OCT"],["11","NOV"],["12","DEC"]
+    this.months = [
+      ["01", "JAN"], ["02", "FEB"], ["03", "MAR"], ["04", "APR"], ["05", "MAY"], ["06", "JUN"],
+      ["07", "JUL"], ["08", "AUG"], ["09", "SEP"], ["10", "OCT"], ["11", "NOV"], ["12", "DEC"]
     ]
 
     let d = new Date();
-    this.year=d.getFullYear();
-    this.month=this.months[d.getMonth()][0];
+    this.year = d.getFullYear();
+    this.month = this.months[d.getMonth()][0];
   }
 
   ngOnInit(): void {
-   this.loadData();
+    this.loadData();
   }
 
-  loadData(){
-    this.txnService.getAllByUserId(this.user?.id??0,this.month,this.year).subscribe(
+  loadData() {
+    this.txnService.getAllByUserId(this.user?.id ?? 0, this.month, this.year).subscribe(
       data => {
-        this.txns=data.txns;
-        this.totalCredit=data.totalCredit;
-        this.totalDebit=data.totalDebit;
-        this.balance=data.balance;
+        this.txns = data.txns;
+        this.totalCredit = data.totalCredit;
+        this.totalDebit = data.totalDebit;
+        this.balance = data.balance;
       },
-      err =>this.errMsg="Sorry! Unable to fetech the data."
+      err => this.errMsg = "Sorry! Unable to fetech the data."
+    );
+  }
+
+  delete(id: number) {
+    this.txnService.delete(id).subscribe(
+      () => this.loadData(),
+      err => this.errMsg = "Unable to delete the record"
     );
   }
 }

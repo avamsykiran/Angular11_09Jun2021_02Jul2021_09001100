@@ -12,6 +12,7 @@ const routes: Routes = [
       { path: 'list', component: TxnsListComponent },
       { path: 'listAnnual', component: AnnualStatementComponent },
       { path: 'new', component: TxnsFormComponent },
+      { path: 'edit/:id', component: TxnsFormComponent },
       { path: '', pathMatch: 'full', redirectTo: 'list' }
     ]
   }

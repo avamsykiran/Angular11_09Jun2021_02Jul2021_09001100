@@ -35,14 +35,6 @@
       "userId": 2
     },
     {
-      "id": 2,
-      "dot": "2021-06-01",
-      "header": "School Fee",
-      "type": "DEBIT",
-      "amount": 6780,
-      "userId": 2
-    },
-    {
       "id": 3,
       "dot": "2021-06-01",
       "header": "Salary",
@@ -55,7 +47,7 @@
       "dot": "2021-07-01",
       "header": "Salary",
       "type": "CREDIT",
-      "amount": 56000,
+      "amount": 67800,
       "userId": 2
     }
   ]
