@@ -844,3 +844,57 @@ is a javascript framework used to develop SPA / PWA applications.
             CanLoad                controls if a lazy loaded route should be laoded or not
             CanChildActivate       control if child-routes can be entered or not
         
+        Angular Testing
+        ---------------------------------------------------------------------------------
+
+            jasmine     is an independent javascript testing library.
+
+
+                        describe    -------------> writes test suits (are a collection of test cases)
+                        beforeEach  -------------> that executes a common task before executing each test case
+                        afterEach   -------------> that executes a common task after  executing each test case
+                        it          -------------> which indicate one test case.
+
+                        expect      -------------> creates an assertiopn object which
+                                                    reports test being passed or failed.
+
+                                                    the assertion object has matcher functions
+
+                                                    toBe(object)
+                                                    toBeSame(Object)
+                                                    toBeTrue()
+                                                    toBeFalse()
+                                                    toBeTruthy()
+                                                    toBeFalsy()
+                                                    toBeNull()
+                                                    toBeNotNull()
+                                                    toBeUndefined()
+                                                    toBeGreaterThan(value) ......etc
+
+                        describe("test suit description",()=>{
+
+                            beforeEach(()=>{
+                                //write a job that has to execute commonly
+                                //before executing each test case
+                            })
+
+                            afterEach(()=>{
+                                //write a job that has to execute commonly
+                                //after executing each test case
+                            })
+
+                            it("test case descriotion",()=>{
+                                //the actual test case.....
+                            })
+                        });
+
+
+
+            karma       is a testing framework/platform for angular, developed by the
+                        same tema that developed angular.
+
+                        npm test    ----------->  ng test -------> trigger karma and then
+                                                                karma executes the .spec.ts files 
+                                                                contianing jasmine test cases 
+                                                                and then karma reports the test results
+                                                                on the browser (chrome).
